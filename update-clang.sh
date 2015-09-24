@@ -1,7 +1,7 @@
 #!/bin/bash
 # We build clang manually because I don't know a better way
 
-mkdir -p ".travis/clang" && cd ".travis"
+mkdir -p ".travis/clang" && cd ".travis/clang"
 svn co -q http://llvm.org/svn/llvm-project/llvm/trunk llvm
 cd llvm/tools
 svn co -q http://llvm.org/svn/llvm-project/cfe/trunk clang

@@ -16,7 +16,6 @@ It would be nice if these things could be fixed:
 * Although CMake 3.0.2 is nice, it would be even better to have CMake 3.3 or later
 * It would be amazing if Travis would just _update all the things_ for us, so that we don't have to muck around doing it ourselves
 
-Travis is set to build pull requests, so you can start a PR and muck around with it:
-https://travis-ci.org/LB--/travis/pull_requests
+[Travis is set to build pull requests, so you can start a PR and muck around with it.](https://travis-ci.org/LB--/travis/pull_requests)
 
 #**GLHF**

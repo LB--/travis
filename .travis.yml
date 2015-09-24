@@ -6,10 +6,11 @@ compiler:
 sudo: false
 
 before_install:
-  - pushd . &&                                  source "./update-cmake.sh"     && popd
+#  - pushd . &&                                  source "./update-cmake.sh"     && popd
+  - pushd . &&                                  source "./install-biicode.sh"  && popd
+  - bii setup:cpp
   - pushd . && if [ "$CXX" == "clang++" ]; then source "./update-clang.sh"; fi && popd
   - pushd . && if [ "$CXX" ==     "g++" ]; then source "./update-gcc.sh";   fi && popd
-  - pushd . &&                                  source "./install-biicode.sh"  && popd
 
 script:
   - clang --version

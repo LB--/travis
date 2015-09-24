@@ -1,6 +1,6 @@
 language: c++
 compiler:
-  - clang
+#  - clang
   - gcc
 
 sudo: false

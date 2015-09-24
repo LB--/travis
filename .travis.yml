@@ -1,0 +1,23 @@
+language: c++
+compiler:
+  - clang
+  - gcc
+
+sudo: false
+
+before_install:
+  - pushd . && if [ "$CXX" == "clang++" ]; then "./update-clang.sh"; fi && popd
+  - pushd . && if [ "$CXX" == "g++" ]; then "./update-gcc.sh"; fi && popd
+  - pushd . && "./update-cmake.sh" && popd
+  - pushd . && "./install-biicode.sh" && popd
+
+script:
+  - clang --version
+  - clang++ --version
+  - gcc --version
+  - g++ --version
+  - cmake --version
+  - bii --version
+
+notifications:
+  email: false

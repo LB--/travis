@@ -13,7 +13,7 @@ CLANGPATH=$(pwd)
 mkdir build && cd build
 cmake -G "Unix Makefiles" ../llvm/tools/clang -DCMAKE_INSTALL_PREFIX="$CLANGPATH/install" -DCMAKE_BUILD_TYPE=RELEASE
 make install
-cd ../install/usr/bin
+cd ../install
 ls -lah
 CLANGPATH=$(pwd)
 export PATH="$CLANGPATH:$PATH"

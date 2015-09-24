@@ -1,7 +1,7 @@
 language: c++
 compiler:
   - clang
-#  - gcc
+  - gcc
 
 sudo: false
 addons:
@@ -15,16 +15,14 @@ before_install:
   - if [ "$CC"  == "gcc" ]; then export CC=gcc-5; fi
   - if [ "$CXX" == "g++" ]; then export CXX=g++-5; fi
   - pushd . && source "./install-biicode.sh"  && popd
-  - bii setup:cpp
+  - bii setup:cpp && export PATH="/home/travis/.biicode/cmake-3.0.2-Linux-64/bin:$PATH"
   - pushd . && if [ "$CXX" == "clang++" ]; then source "./update-clang.sh"; fi && popd
 
 script:
-  - clang --version
-  - clang++ --version
-  - gcc --version
-  - g++ --version
-  - cmake --version
   - bii --version
+  - cmake --version
+  - $CC --version
+  - $CXX --version
 
 notifications:
   email: false

@@ -1,11 +1,9 @@
 #!/bin/bash
 # The official biicode installation script requires sudo, which isn't available on containers
 
-mkdir -p ".travis" && cd ".travis"
-git clone https://github.com/biicode/biicode.git
+mkdir -p ".travis/biicode" && cd ".travis"
+wget https://s3.amazonaws.com/biibinaries/release/3.3/bii-ubuntu-64_3_3.deb
+dpkg -x bii-ubuntu-64_3_3.deb ./biicode/
 cd biicode
 BIIPATH=$(pwd)
-git submodule update --init --recursive
-pip install -r client/requirements.txt
-pip install -r common/requirements.txt
 export PATH="$BIIPATH:$PATH"

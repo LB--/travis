@@ -10,6 +10,10 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-5
+cache:
+  apt: true
+  directories:
+  - .travis/cmake/build/install
 
 before_install:
   - if [ "$CC"  == "gcc" ]; then export CC=gcc-5; fi

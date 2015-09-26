@@ -11,7 +11,7 @@ then
 	cmake --build . && cmake --build . --target install
 	cd install/bin
 else
-	cd ".travis/cmake/install/bin"
+	cd ".travis/cmake/build/install/bin"
 fi
 CMAKEPATH=$(pwd)
 export PATH="$CMAKEPATH:$PATH"

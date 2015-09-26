@@ -13,7 +13,7 @@ addons:
 cache:
   apt: true
   directories:
-  - .travis/cmake/build/install
+  - ".travis/cmake/build/install"
 
 before_install:
   - if [ "$CC"  == "gcc" ]; then export CC=gcc-5; fi

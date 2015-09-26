@@ -7,6 +7,6 @@ git clone https://github.com/Kitware/CMake.git cmake
 cd cmake && mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=$(pwd)/install ..
 cmake --build . && cmake --build . --target install
-cd install/usr/bin
+cd install/bin
 CMAKEPATH=$(pwd)
 export PATH="$CMAKEPATH:$PATH"

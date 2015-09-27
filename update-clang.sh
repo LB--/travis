@@ -8,7 +8,7 @@ if [ ! -d ".travis/clang/install/bin" ]; then
 	git clone https://github.com/llvm-mirror/clang.git clang
 	cd ../projects
 	git clone https://github.com/llvm-mirror/compiler-rt.git compiler-rt
-	git clone https://github.com/llvm-mirror/libcxx.git libcxx
+#	git clone https://github.com/llvm-mirror/libcxx.git libcxx
 	cd ../..
 	CLANGPATH=$(pwd)
 	mkdir build && cd build

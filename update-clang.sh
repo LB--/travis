@@ -12,11 +12,15 @@ if [ ! -d ".travis/clang/install/bin" ]; then
 	cd ../..
 	CLANGPATH=$(pwd)
 	mkdir build && cd build
+	export CC=gcc-5
+	export CXX=g++-5
 	cmake ../llvm -DCMAKE_INSTALL_PREFIX="$CLANGPATH/install" -DCMAKE_BUILD_TYPE=RELEASE
 	cmake --build . && cmake --build . --target install
 	cd ../install/bin
 else
 	cd ".travis/clang/install/bin"
 fi
+export CC=clang
+export CXX=clang++
 CLANGPATH=$(pwd)
 export PATH="$CLANGPATH:$PATH"

@@ -3,6 +3,7 @@
 # unfortunately the easiest way I can find to do this is to build it from source
 
 if [ ! -d ".travis/cmake/build/install/bin" ]; then
+	rm -rf ".travis/cmake"
 	mkdir -p ".travis/cmake" && cd ".travis"
 	git clone https://github.com/Kitware/CMake.git cmake
 	cd cmake && mkdir build && cd build

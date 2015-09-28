@@ -12,12 +12,9 @@ matrix:
             - llvm-toolchain-precise-3.7
           packages:
             - clang
-            - clang-3.5
             - clang-3.6
             - clang-3.7
             - clang-3.8
-            - clang-dev
-            - clang-snapshot
 #    - os: linux
 #      compiler: gcc
 #      addons:
@@ -34,8 +31,8 @@ cache:
 before_install:
   - if [ "$CC"  == "gcc"     ]; then export CC=gcc-5; fi
   - if [ "$CXX" == "g++"     ]; then export CXX=g++-5; fi
-  - if [ "$CC"  == "clang"   ]; then export CC=clang-3.8; fi
-  - if [ "$CXX" == "clang++" ]; then export CXX=clang++-3.8; fi
+#  - if [ "$CC"  == "clang"   ]; then export CC=clang-3.8; fi
+#  - if [ "$CXX" == "clang++" ]; then export CXX=clang++-3.8; fi
   - pushd . && source "./install-biicode.sh" && popd
   - pushd . && source "./update-cmake.sh"    && popd
 
@@ -44,6 +41,11 @@ script:
   - cmake --version
   - $CC --version
   - $CXX --version
+  - clang-3.4 --version
+  - clang-3.5 --version
+  - clang-3.6 --version
+  - clang-3.7 --version
+  - clang-3.8 --version
 
 notifications:
   email: false

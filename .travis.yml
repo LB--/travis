@@ -7,14 +7,9 @@ matrix:
       addons:
         apt:
           sources:
-            - llvm-toolchain-precise
             - llvm-toolchain-precise-3.7
-            - llvm-toolchain-precise-3.8
-            - llvm-toolchain
-            - llvm-toolchain-3.7
-            - llvm-toolchain-3.8
           packages:
-            - clang-3.8
+            - clang-3.7
 #    - os: linux
 #      compiler: gcc
 #      addons:
@@ -31,8 +26,8 @@ cache:
 before_install:
   - if [ "$CC"  == "gcc"     ]; then export CC=gcc-5; fi
   - if [ "$CXX" == "g++"     ]; then export CXX=g++-5; fi
-  - if [ "$CC"  == "clang"   ]; then export CC=clang-3.8; fi
-  - if [ "$CXX" == "clang++" ]; then export CXX=clang++-3.8; fi
+  - if [ "$CC"  == "clang"   ]; then export CC=clang-3.7; fi
+  - if [ "$CXX" == "clang++" ]; then export CXX=clang++-3.7; fi
   - pushd . && source "./install-biicode.sh" && popd
   - pushd . && source "./update-cmake.sh"    && popd
 

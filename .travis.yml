@@ -1,27 +1,40 @@
 language: c++
-compiler:
-#  - clang
-  - gcc
-
 sudo: false
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-5
+matrix:
+  include:
+    - os: linux
+      compiler: clang
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise
+            - llvm-toolchain-precise-3.7
+          packages:
+            - clang
+            - clang-3.6
+            - clang-3.7
+            - clang-3.8
+    - os: linux
+      compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
 cache:
   apt: true
   directories:
   - ".travis/cmake/build/install"
 
 before_install:
-  - if [ "$CC"  == "gcc" ]; then export CC=gcc-5; fi
-  - if [ "$CXX" == "g++" ]; then export CXX=g++-5; fi
-  - pushd . && source "./install-biicode.sh"  && popd
-  - pushd . && source "./update-cmake.sh"  && popd
-  - bii setup:cpp
-  - pushd . && if [ "$CXX" == "clang++" ]; then source "./update-clang.sh"; fi && popd
+  - if [ "$CC"  == "gcc"     ]; then export CC=gcc-5; fi
+  - if [ "$CXX" == "g++"     ]; then export CXX=g++-5; fi
+  - if [ "$CC"  == "clang"   ]; then export CC=clang-3.8; fi
+  - if [ "$CXX" == "clang++" ]; then export CXX=clang++-3.8; fi
+  - pushd . && source "./install-biicode.sh" && popd
+  - pushd . && source "./update-cmake.sh"    && popd
 
 script:
   - bii --version

@@ -12,6 +12,7 @@ matrix:
             - llvm-toolchain-precise-3.7
           packages:
             - clang-3.8
+            - g++-5
     - os: linux
       compiler: gcc
       addons:
@@ -24,6 +25,7 @@ cache:
   apt: true
   directories:
   - ".travis/cmake/build/install"
+#  - ".travis/boost-install"
 
 before_install:
   - if [ "$CC"  == "gcc"     ]; then export CC=gcc-5; fi
@@ -32,6 +34,7 @@ before_install:
   - if [ "$CXX" == "clang++" ]; then export CXX=clang++-3.8; fi
   - pushd . && source "./install-biicode.sh" && popd
   - pushd . && source "./update-cmake.sh"    && popd
+  - pushd . && source "./update-boost.sh"    && popd
 
 script:
   - bii --version

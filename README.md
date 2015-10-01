@@ -12,6 +12,7 @@ Currently, the following things are handled properly:
 * CMake 3.3 (or later) is built from source or cached by Travis and we add it to `$PATH`
 
 It would be nice if these things could be fixed:
+* The version of Boost available in Travis is pretty outdated, it would be nice to have Boost 1.59 at least. It can be built in Travis with GCC 5.1 without issue, but building with Clang 3.8 has problems that need to be solved.
 * It would be amazing if Travis would just _update all the things_ for us, so that we don't have to muck around doing it ourselves
 
 [Travis is set to build pull requests, so you can start a PR and muck around with it.](https://travis-ci.org/LB--/travis/pull_requests)

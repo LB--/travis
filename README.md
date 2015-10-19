@@ -15,6 +15,7 @@ Currently, the following things are handled properly:
 It would be nice if these things could be fixed:
 * Boost has to be built with GCC because it produces errors with Clang - it would be nice to not require GCC during a Clang build
 * If you need to change which Boost libraries you want built, you have to clear the cache - it would be nice if the scripts could automatically detect which libraries are cached and which aren't
+* Currently only `linux` is used to test on, it would be nice to be able to use `osx` with all the same bells and whistles
 * It would be amazing if Travis would just _update all the things_ for us, so that we don't have to muck around doing it ourselves
 
 [Travis is set to build pull requests, so you can start a PR and muck around with it.](https://travis-ci.org/LB--/travis/pull_requests)

@@ -11,7 +11,7 @@ cache:
 
 script:
   - ls -lahR
-  - if [ ! -d "cache/test" ]; then touch "cache/test/test.txt"; fi
+  - if [ ! -d "cache/test" ]; then mkdir -p "cache/test" && touch "cache/test/test.txt"; fi
 
 notifications:
   email: false

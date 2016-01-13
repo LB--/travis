@@ -1,0 +1,17 @@
+language: c++
+sudo: false
+matrix:
+  include:
+    - os: osx
+      compiler: clang
+cache:
+  apt: true
+  directories:
+  - "cache"
+
+script:
+  - ls -lahR
+  - if [ ! -d "cache/test" ]; then touch "cache/test/test.txt"; fi
+
+notifications:
+  email: false

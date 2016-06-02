@@ -9,9 +9,9 @@ if [ ! -d ".travis/boost-install/lib" ]; then
 	cd boost && chmod +x bootstrap.sh
 	./bootstrap.sh --prefix="$(pwd)/../boost-install"
 	./b2 headers
-	# We have to build boost using GCC 5.1
-	# If you know how to build boost with Clang 3.8, fix this!
-	./b2 toolset=gcc-5 cxxflags="-std=c++14" variant=release link=static "$@" install -d0
+	# We have to build boost using GCC
+	# If you know how to build boost with Clang, fix this!
+	./b2 toolset=gcc-6 variant=release link=static "$@" install -d0
 else
 	mkdir -p ".travis/boost" && cd ".travis/boost"
 fi

@@ -12,7 +12,7 @@ matrix:
             - llvm-toolchain-precise-3.7
           packages:
             - clang-3.8
-            - g++-5
+            - g++-6
     - os: linux
       compiler: gcc
       addons:
@@ -20,7 +20,7 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-5
+            - g++-6
 cache:
   apt: true
   directories:
@@ -28,8 +28,8 @@ cache:
   - ".travis/boost-install"
 
 before_install:
-  - if [ "$CC"  == "gcc"     ]; then export CC=gcc-5; fi
-  - if [ "$CXX" == "g++"     ]; then export CXX=g++-5; fi
+  - if [ "$CC"  == "gcc"     ]; then export CC=gcc-6; fi
+  - if [ "$CXX" == "g++"     ]; then export CXX=g++-6; fi
   - if [ "$CC"  == "clang"   ]; then export CC=clang-3.8; fi
   - if [ "$CXX" == "clang++" ]; then export CXX=clang++-3.8; fi
   - pushd . && source "./install-biicode.sh"                          && popd

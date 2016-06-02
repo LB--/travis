@@ -32,12 +32,10 @@ before_install:
   - if [ "$CXX" == "g++"     ]; then export CXX=g++-5; fi
   - if [ "$CC"  == "clang"   ]; then export CC=clang-3.8; fi
   - if [ "$CXX" == "clang++" ]; then export CXX=clang++-3.8; fi
-  - pushd . && source "./install-biicode.sh"                          && popd
   - pushd . && source "./update-cmake.sh"                             && popd
   - pushd . && source "./update-boost.sh" --with-locale --with-system && popd
 
 script:
-  - bii --version
   - cmake --version
   - $CC --version
   - $CXX --version

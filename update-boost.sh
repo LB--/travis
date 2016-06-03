@@ -5,7 +5,7 @@ if [ ! -d ".travis/boost-install/lib" ]; then
 	rm -rf ".travis/boost"
 	rm -rf ".travis/boost-install"
 	mkdir -p ".travis" && cd ".travis"
-	git clone --recursive --depth 1 https://github.com/boostorg/boost.git boost >/dev/null 2>&1 || echo "clone failed"
+	git clone --recursive --depth 1 --branch boost-1.61.0 https://github.com/boostorg/boost.git boost >/dev/null 2>&1 || echo "clone failed"
 	cd boost && chmod +x bootstrap.sh
 	./bootstrap.sh --prefix="$(pwd)/../boost-install"
 	./b2 headers

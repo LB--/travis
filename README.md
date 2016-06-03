@@ -7,10 +7,9 @@ we've done most of the hard work for you, and you can just copypaste thanks to t
 If you can, try to help out by keeping this repo up to date with pull requests.
 
 Currently, the following things are handled properly:
-* Either GCC 5.1 or Clang 3.8 is installed and the `$CC` and `$CXX` environment variables are updated accordingly
-* biicode is installed without `sudo` and is added to `$PATH`
-* CMake 3.3 (or later) is built from source or cached by Travis and we add it to `$PATH`
-* Boost is built with only the libraries you request and `$BOOST_ROOT` is set properly
+* Either GCC 6 or Clang 3.8 is installed and the `$CC` and `$CXX` environment variables are updated accordingly
+* CMake 3.5.2 is built from source or cached by Travis and we add it to `$PATH`
+* Boost 1.61.0 is built with only the libraries you request and `$BOOST_ROOT` is set properly
 
 It would be nice if these things could be fixed:
 * Boost has to be built with GCC because it produces errors with Clang - it would be nice to not require GCC during a Clang build

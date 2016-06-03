@@ -12,6 +12,7 @@ Currently, the following things are handled properly:
 * Boost 1.61.0 is built with only the libraries you request and `$BOOST_ROOT` is set properly
 
 It would be nice if these things could be fixed:
+* Clang currently fails to download a majority of the time - seems to be an issue on LLVM's end
 * Boost has to be built with GCC because it produces errors with Clang - it would be nice to not require GCC during a Clang build
 * If you need to change which Boost libraries you want built, you have to clear the cache - it would be nice if the scripts could automatically detect which libraries are cached and which aren't
 * Currently only `linux` is used to test on, it would be nice to be able to use `osx` with all the same bells and whistles

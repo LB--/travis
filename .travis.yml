@@ -2,17 +2,17 @@ language: c++
 sudo: false
 matrix:
   include:
-    - os: linux
-      compiler: clang
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise
-            - llvm-toolchain-precise-3.7
-          packages:
-            - clang-3.8
-            - g++-6
+#    - os: linux
+#      compiler: clang
+#      addons:
+#        apt:
+#          sources:
+#            - ubuntu-toolchain-r-test
+#            - llvm-toolchain-precise
+#            - llvm-toolchain-precise-3.7
+#          packages:
+#            - clang-3.8
+#            - g++-6
     - os: linux
       compiler: gcc
       addons:

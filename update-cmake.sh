@@ -12,11 +12,11 @@ if [ ! -d ".travis/cmake/build/install/bin" ]; then
 	curl -O https://curl.haxx.se/download/curl-7.50.0.tar.gz
 	tar -xzvf curl-7.50.0.tar.gz
 	mkdir build-curl && cd build-curl
-	cmake ../curl-7.50.0 -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DBUILD_SHARED_LIBS=OFF -DBUILD_CURL_EXE=OFF -DCURL_STATICLIB=ON
+	cmake ../curl-7.50.0 -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DBUILD_CURL_EXE=OFF
 	cmake --build . --target install
 	popd
 
-	cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_USE_SYSTEM_CURL=ON -DCURL_INCLUDE_DIR=./install/include/curl -DCURL_LIBRARY=./install/lib/libcurl.a
+	cmake .. -DCMAKE_INSTALL_PREFIX=./install -DCMAKE_BUILD_TYPE=Release -DCMAKE_USE_SYSTEM_CURL=ON -DCURL_INCLUDE_DIR=./install/include/curl -DCURL_LIBRARY=./install/lib/libcurl.so
 	cmake --build . --target install
 	cd install/bin
 else
@@ -24,3 +24,5 @@ else
 fi
 CMAKEPATH=$(pwd)
 export PATH="$CMAKEPATH:$PATH"
+cd ../lib
+export LD_LIBRARY_PATH="$(pwd):$LD_LIBRARY_PATH"

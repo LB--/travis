@@ -21,7 +21,6 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-6
-            - libcurl-dev
 cache:
   apt: true
   directories:

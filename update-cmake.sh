@@ -6,8 +6,15 @@ if [ ! -d ".travis/cmake/build/install/bin" ]; then
 	mkdir -p ".travis/cmake" && cd ".travis"
 	git clone --recursive --depth 1 --branch v3.6.1 https://github.com/Kitware/CMake.git cmake
 	cd cmake && mkdir build && cd build
-	cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_USE_SYSTEM_CURL=ON
-	cmake --build . && cmake --build . --target install
+	pushd .
+	curl -O https://curl.haxx.se/download/curl-7.50.0.tar.gz
+	tar -xzvf curl-7.50.0.tar.gz
+	mkdir build-curl && cd build-curl
+	cmake ../curl-7.50.0 -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DBUILD_SHARED_LIBS=OFF -DBUILD_CURL_EXE=OFF -DCURL_STATICLIB=ON
+	cmake --build . --target install
+	popd
+	cmake .. -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_USE_SYSTEM_CURL=ON -DCURL_INCLUDE_DIR=./install/include/curl -DCURL_LIBRARY=./install/lib/libcurl.a
+	cmake --build . --target install
 	cd install/bin
 else
 	cd ".travis/cmake/build/install/bin"

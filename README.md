@@ -8,7 +8,7 @@ If you can, try to help out by keeping this repo up to date with pull requests.
 
 Currently, the following things are handled properly:
 * Either GCC 6 or Clang 3.8 is installed and the `$CC` and `$CXX` environment variables are updated accordingly
-* CMake 3.6.1 is built from source (also builds and uses libcurl 7.50.0 for HTTPS support) or cached by Travis and we add it to `$PATH`
+* CMake 3.6.1 binaries are downloaded or cached by Travis and we add it to `$PATH`
 * Boost 1.61.0 is built with only the libraries you request and `$BOOST_ROOT` is set properly
 
 It would be nice if these things could be fixed:
